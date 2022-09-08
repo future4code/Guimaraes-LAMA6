@@ -1,0 +1,52 @@
+POST http://localhost:3000/user/signup
+Content-Type: application/json
+
+{
+    "name": "Tiago Hennig",
+    "email": "tiago.hennig@email.com",
+    "password": "123456",
+    "role": "NORMAL"
+}
+
+###
+
+POST http://localhost:3000/user/login 
+Content-Type: application/json
+
+{
+    "email": "maria.karolina@email.com",
+    "password": "123456"
+}
+
+###
+
+POST http://localhost:3000/band/create
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM2OTMxZTJkLWQwZWUtNGQ5ZS04ZmJmLWE1ZmY2OTUyMTI4YyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MjU3OTM1MSwiZXhwIjoxNjYyNjIyNTUxfQ.Oe1S55hwQDcKilrDM_WtrvhWsrSG5u71wX6JLLSg29A
+
+{
+    "name": "Foster the People",
+    "music_genre": "Rock",
+    "responsible": "Mark Foster"
+}
+
+###
+
+GET  http://localhost:3000/band/search
+Content-Type: application/json
+
+{
+    "id": "f1c53d4e-07f0-4b2c-b0fa-723a360c48d7"
+}
+
+###
+
+POST http://localhost:3000/shows/set
+Content-Type: application/json
+
+{
+    "weekDay": "sexta-feira",
+    "startTime": 15,
+    "endTime": 17,
+    "bandId": "f1c53d4e-07f0-4b2c-b0fa-723a360c48d7"
+}
