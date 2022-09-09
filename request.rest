@@ -1,0 +1,61 @@
+POST http://localhost:3000/user/signup
+Content-Type: application/json
+
+{
+    "name": "Tiago Hennig",
+    "email": "tiago.hennig@email.com",
+    "password": "123456",
+    "role": "NORMAL"
+}
+
+###
+
+POST http://localhost:3000/user/login 
+Content-Type: application/json
+
+{
+    "email": "maria.karolina@email.com",
+    "password": "123456"
+}
+
+###
+
+POST http://localhost:3000/band/create
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM2OTMxZTJkLWQwZWUtNGQ5ZS04ZmJmLWE1ZmY2OTUyMTI4YyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MjY2NDEzNywiZXhwIjoxNjYyNzA3MzM3fQ.mK0vT_GOyapUnZ4RtKlc1yI5zsAVq9mPgO-UTgaLHlY
+
+{
+    "name": "Kid Abelha",
+    "music_genre": "Rock",
+    "responsible": "Paula Toller"
+}
+
+###
+
+GET  http://localhost:3000/band/search
+Content-Type: application/json
+
+{
+    "id": "f1c53d4e-07f0-4b2c-b0fa-723a360c48d7"
+}
+
+###
+
+POST http://localhost:3000/shows/set
+Content-Type: application/json
+
+{
+    "weekDay": "sexta-feira",
+    "startTime": 19,
+    "endTime": 20,
+    "bandId": "b9c01c54-685d-4cc7-ada1-ed26aa05c1f8"
+}
+
+###
+
+GET http://localhost:3000/shows/weekday
+Content-Type: application/json
+
+{
+    "week_day": "domingo"
+}
