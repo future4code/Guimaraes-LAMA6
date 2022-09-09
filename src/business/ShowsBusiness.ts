@@ -1,6 +1,6 @@
 import { BandDatabase } from "../data/BandDatabase";
 import { ShowsDatabase } from "../data/ShowsDatabase";
-import { CustomError, InvalidStartTime, InvalidWeekDay, MissingInformation, NotFound } from "../error/BaseError";
+import { CustomError, FestivalClosed, InvalidStartTime, InvalidWeekDay, MissingInformation, NotFound } from "../error/BaseError";
 import { IdGenerator } from "../services/IdGenerator";
 
 
@@ -24,10 +24,18 @@ export class ShowsBusiness {
         }
 
         if ( !Number.isInteger(start_time) && !Number.isInteger(end_time) ) {
-            throw new InvalidStartTime()
+            throw new FestivalClosed()
         }
 
         if ( ( start_time < 8 ) && ( start_time > 23 ) ) {
+            throw new FestivalClosed()
+        }
+
+        if (end_time < start_time) {
+            throw new InvalidStartTime()
+        }
+
+        if (end_time == start_time) {
             throw new InvalidStartTime()
         }
 
@@ -38,10 +46,15 @@ export class ShowsBusiness {
             throw new NotFound()
         }
 
-        const checkAvailable = await this.showsDatabase.checkAvailable(start_time, end_time, week_day)
-        console.log(checkAvailable)
-        if ( checkAvailable ) {
-            throw new CustomError(400, "Horário não disponível.")
+        const checkday = await this.showsDatabase.checkDay(week_day)
+
+        for (let show of checkday) {
+            if (show.start_time == start_time) {
+                throw new CustomError(400, "Horário não disponível.")
+            }
+            if ((start_time < show.end_time) && (start_time > show.start_time)) {
+                throw new CustomError(400, "Horário não disponível.")
+            }
         }
 
         const idGenerator = new IdGenerator();
@@ -60,4 +73,19 @@ export class ShowsBusiness {
     }
 
 
+    async showsOfTheDay(weekDay: string) {
+
+        if (!weekDay) {
+            throw new MissingInformation()
+        }
+
+        const result = await this.showsDatabase.showsOfTheDay(weekDay)
+
+        if (!result) {
+            throw new CustomError(400, "Não há shows agendados para este dia.")
+        }
+
+        return result
+
+    }
 }

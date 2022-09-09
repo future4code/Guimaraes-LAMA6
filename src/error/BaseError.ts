@@ -48,8 +48,15 @@ export class InvalidWeekDay extends CustomError {
 
 
 
-export class InvalidStartTime extends CustomError {
+export class FestivalClosed extends CustomError {
   constructor() {
     super(400, "Os shows devem ocorrer entre as 8h e 23h, e devem iniciar e terminar somente em horas cheias.")
   }
 }
+
+export class InvalidStartTime extends CustomError {
+  constructor() {
+    super(400, "Horários inválidos. Verifique o início e o fim do show.")
+  }
+}
+
