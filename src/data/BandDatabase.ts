@@ -64,3 +64,6 @@ export class BandDatabase extends BaseDatabase {
         }
     }
 }
+
+//Maria - apagar depois
+//Karolina
