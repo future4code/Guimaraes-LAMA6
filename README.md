@@ -9,3 +9,20 @@
 
 <h2> 📜 Link da documentação da API 🔗</h2>
 <p> https://documenter.getpostman.com/view/19721031/2s7YfU8CVC </p>
+
+<h2 align="center">👨‍💻 Desenvolvedores 👩‍💻</h2>
+
+<table align="center"> 
+<tr>
+ 
+<td align="center"><a href="https://github.com/tiagohennig"><img style="border-radius: 50%" src="https://avatars.githubusercontent.com/u/86529848?v=4" width="100px" alt=""/>
+ <br />
+ <sub><b>Tiago Hennig</b></sub></a> <a href="https://github.com/tiagohennig"></a></td>
+
+<td align="center"><a href="https://github.com/Maria-Karolina"><img style="border-radius: 50%" src="https://avatars.githubusercontent.com/u/88107710?v=4" width="100px" alt=""/>
+ <br />
+ <sub><b>Maria Karolina Freitas </b></sub></a> <a href="https://github.com/Maria-Karolina"></a></td>
+  
+</tr>
+  
+</table>
